@@ -1,7 +1,9 @@
 include $(THEOS)/makefiles/common.mk
 
-BUNDLE_NAME = SignaldBm
+BUNDLE_NAME = SignaldBmSettings
+
 $(BUNDLE_NAME)_FILES = /mnt/d/codes/signaldbm/signaldbmsettings/SignaldBmSettingsController.mm
+
 $(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
 $(BUNDLE_NAME)_FRAMEWORKS = UIKit QuartzCore CoreGraphics MessageUI Social Twitter
 $(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences
@@ -11,5 +13,3 @@ $(BUNDLE_NAME)_ARCHS = armv7 armv7s arm64 arm64e
 export ARCHS = armv7 armv7s arm64 arm64e
 
 include $(THEOS_MAKE_PATH)/bundle.mk
-
-all::

@@ -58,6 +58,166 @@
 		[spec setProperty:@YES forKey:@"default"];
         [specifiers addObject:spec];
 		
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Text Color"
+                                              target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+                                              detail:PSListItemsController.class
+											  cell:PSLinkListCell
+											  edit:Nil];
+		[spec setProperty:@"textColor" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@0 forKey:@"default"];
+		[spec setValues:@[@0, @1, @2] titles:@[@"White", @"Black", @"Red"]];
+		[specifiers addObject:spec];
+		
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Size Text"
+		                                      target:self
+											  set:Nil
+											  get:Nil
+                                              detail:Nil
+											  cell:PSGroupCell
+											  edit:Nil];
+		[spec setProperty:@"Size Text" forKey:@"label"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Size Text"
+                                              target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+                                              detail:Nil
+											  cell:PSSliderCell
+											  edit:Nil];
+		[spec setProperty:@"fontSize" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@0 forKey:@"default"];
+		[spec setProperty:@0 forKey:@"min"];
+		[spec setProperty:@30 forKey:@"max"];
+		[spec setProperty:@NO forKey:@"isContinuous"];
+		[spec setProperty:@YES forKey:@"showValue"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:nil
+					      target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+					      detail:Nil
+											  cell:PSEditTextCell
+											  edit:Nil];
+		[spec setProperty:@"fontSize" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@0 forKey:@"default"];
+		[specifiers addObject:spec];
+		
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Alpha Text"
+		                                      target:self
+											  set:Nil
+											  get:Nil
+                                              detail:Nil
+											  cell:PSGroupCell
+											  edit:Nil];
+		[spec setProperty:@"Alpha Text" forKey:@"label"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Alpha Text"
+                                              target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+                                              detail:Nil
+											  cell:PSSliderCell
+											  edit:Nil];
+		[spec setProperty:@"kAlphaText" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@(1.0) forKey:@"default"];
+		[spec setProperty:@(0.0) forKey:@"min"];
+		[spec setProperty:@(1.0) forKey:@"max"];
+		[spec setProperty:@NO forKey:@"isContinuous"];
+		[spec setProperty:@YES forKey:@"showValue"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:nil
+					      target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+					      detail:Nil
+											  cell:PSEditTextCell
+											  edit:Nil];
+		[spec setProperty:@"kAlphaText" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@(1.0) forKey:@"default"];
+		[specifiers addObject:spec];
+		
+		
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Width"
+		                                      target:self
+											  set:Nil
+											  get:Nil
+                                              detail:Nil
+											  cell:PSGroupCell
+											  edit:Nil];
+		[spec setProperty:@"Width" forKey:@"label"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Width"
+                                              target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+                                              detail:Nil
+											  cell:PSSliderCell
+											  edit:Nil];
+		[spec setProperty:@"kWidth" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@(0) forKey:@"default"];
+		[spec setProperty:@0 forKey:@"min"];
+		[spec setProperty:@([[UIScreen mainScreen] bounds].size.width) forKey:@"max"];
+		[spec setProperty:@NO forKey:@"isContinuous"];
+		[spec setProperty:@YES forKey:@"showValue"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:nil
+					      target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+					      detail:Nil
+											  cell:PSEditTextCell
+											  edit:Nil];
+		[spec setProperty:@"kWidth" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@(0) forKey:@"default"];
+		[specifiers addObject:spec];
+
+		
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Height"
+		                                      target:self
+											  set:Nil
+											  get:Nil
+                                              detail:Nil
+											  cell:PSGroupCell
+											  edit:Nil];
+		[spec setProperty:@"Height" forKey:@"label"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:@"Height"
+                                              target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+                                              detail:Nil
+											  cell:PSSliderCell
+											  edit:Nil];
+		[spec setProperty:@"kHeight" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@(0) forKey:@"default"];
+		[spec setProperty:@0 forKey:@"min"];
+		[spec setProperty:@([[UIScreen mainScreen] bounds].size.height) forKey:@"max"];
+		[spec setProperty:@NO forKey:@"isContinuous"];
+		[spec setProperty:@YES forKey:@"showValue"];
+        [specifiers addObject:spec];
+		spec = [PSSpecifier preferenceSpecifierNamed:nil
+					      target:self
+											  set:@selector(setPreferenceValue:specifier:)
+											  get:@selector(readPreferenceValue:)
+					      detail:Nil
+											  cell:PSEditTextCell
+											  edit:Nil];
+		[spec setProperty:@"kHeight" forKey:@"key"];
+		[spec setProperty:@YES forKey:@"PromptRespring"];
+		[spec setProperty:@(0) forKey:@"default"];
+		[specifiers addObject:spec];
+		
+		
 		spec = [PSSpecifier emptyGroupSpecifier];
         [specifiers addObject:spec];
 		spec = [PSSpecifier preferenceSpecifierNamed:@"Reset Settings"
@@ -90,7 +250,7 @@
 		[spec setProperty:[UIImage imageWithContentsOfFile:[[self bundle] pathForResource:@"twitter" ofType:@"png"]] forKey:@"iconImage"];
         [specifiers addObject:spec];
 		spec = [PSSpecifier emptyGroupSpecifier];
-        [spec setProperty:@"SignaldBm © 2020" forKey:@"footerText"];
+        [spec setProperty:@"SignaldBm © 2021" forKey:@"footerText"];
         [specifiers addObject:spec];
 		_specifiers = [specifiers copy];
 	}
@@ -144,12 +304,22 @@
 {
 	@autoreleasepool {
 		NSMutableDictionary *Prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@PLIST_PATH_Settings]?:[NSMutableDictionary dictionary];
-		Prefs[[specifier identifier]] = value;
+		
+		NSString* keyVal = [specifier identifier];
+		id val = value;
+		
+		if([keyVal hasSuffix:@".0"]) {
+			keyVal = [keyVal substringToIndex:[keyVal length]-2];
+			val = @([(NSString*)val doubleValue]);
+		}
+		
+		Prefs[keyVal] = val;
 		[Prefs writeToFile:@PLIST_PATH_Settings atomically:YES];
 		notify_post("com.julioverne.signaldbm/SettingsChanged");
 		if ([[specifier properties] objectForKey:@"PromptRespring"]) {
 			[self showPrompt];
 		}
+		[self reloadSpecifiers];
 	}
 }
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -162,7 +332,14 @@
 {
 	@autoreleasepool {
 		NSDictionary *Prefs = [[NSDictionary alloc] initWithContentsOfFile:@PLIST_PATH_Settings];
-		return Prefs[[specifier identifier]]?:[specifier properties][@"default"];
+		
+		NSString* keyVal = [specifier identifier];
+		
+		if([keyVal hasSuffix:@".0"]) {
+			keyVal = [keyVal substringToIndex:[keyVal length]-2];
+		}
+		
+		return Prefs[keyVal]?:[specifier properties][@"default"];
 	}
 }
 - (void)_returnKeyPressed:(id)arg1

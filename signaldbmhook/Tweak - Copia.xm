@@ -3,12 +3,7 @@
 static BOOL Enabled;
 static BOOL rssi_wifi;
 static BOOL rssi_cell;
-
 static int textColor;
-static float fontSize;
-static float kHeight;
-static float kWidth;
-static float kAlphaText;
 
 static WFWiFiStateMonitor* WFMonitor;
 static NSString* getCurrentWiFidBm()
@@ -110,21 +105,11 @@ static NSString* getCurrentCelldBm()
 			if(!self.labelSignaldBm) {
 				self.labelSignaldBm = [[UILabelSignaldBm alloc] init];
 				self.labelSignaldBm.textColor = textColor==0?[UIColor whiteColor]:textColor==1?[UIColor blackColor]:[UIColor redColor];
-				if(fontSize > 0) {
-					self.labelSignaldBm.font = [self.labelSignaldBm.font fontWithSize:fontSize];
-					[self.labelSignaldBm setAdjustsFontSizeToFitWidth:NO];
-				}
-				if(kAlphaText > 0) {
-					self.labelSignaldBm.alpha = kAlphaText;
-				}
 			}
 			self.labelSignaldBm.isWiFi = YES;
 			self.labelSignaldBm.tag = 233;
-			
-			self.labelSignaldBm.frame = CGRectMake(0, 0, kWidth>0?kWidth:self.frame.size.width, kHeight>0?kHeight:self.frame.size.width);
-			self.labelSignaldBm.center = self.center;
-			
-			
+			self.labelSignaldBm.frame = self.frame;
+			self.labelSignaldBm.frame = CGRectMake(self.labelSignaldBm.frame.origin.x, self.labelSignaldBm.frame.origin.y - 3, self.labelSignaldBm.frame.size.width, 12 + 3);
 			[self.labelSignaldBm updatedBmValue];
 			[vAdd addSubview:self.labelSignaldBm];
 		}
@@ -166,20 +151,11 @@ static NSString* getCurrentCelldBm()
 			if(!self.labelSignaldBm) {
 				self.labelSignaldBm = [[UILabelSignaldBm alloc] init];
 				self.labelSignaldBm.textColor = textColor==0?[UIColor whiteColor]:textColor==1?[UIColor blackColor]:[UIColor redColor];
-				if(fontSize > 0) {
-					self.labelSignaldBm.font = [self.labelSignaldBm.font fontWithSize:fontSize];
-					[self.labelSignaldBm setAdjustsFontSizeToFitWidth:NO];
-				}
-				if(kAlphaText > 0) {
-					self.labelSignaldBm.alpha = kAlphaText;
-				}
 			}
 			self.labelSignaldBm.isWiFi = NO;
 			self.labelSignaldBm.tag = 234;
-			
-			self.labelSignaldBm.frame = CGRectMake(0, 0, kWidth>0?kWidth:self.frame.size.width, kHeight>0?kHeight:self.frame.size.width);
-			self.labelSignaldBm.center = self.center;
-			
+			self.labelSignaldBm.frame = self.frame;
+			self.labelSignaldBm.frame = CGRectMake(self.labelSignaldBm.frame.origin.x, self.labelSignaldBm.frame.origin.y - 3, self.labelSignaldBm.frame.size.width, 12 + 3);
 			[self.labelSignaldBm updatedBmValue];
 			[vAdd addSubview:self.labelSignaldBm];
 		}
@@ -197,10 +173,6 @@ static void settingsChangedSignaldBm(CFNotificationCenterRef center, void *obser
 		rssi_wifi = (BOOL)[Prefs[@"rssi_wifi"]?:@YES boolValue];
 		rssi_cell = (BOOL)[Prefs[@"rssi_cell"]?:@YES boolValue];
 		textColor = (int)[Prefs[@"textColor"]?:@(0) intValue];
-		fontSize = (float)[Prefs[@"fontSize"]?:@(0) floatValue];
-		kWidth = (float)[Prefs[@"kWidth"]?:@(0) floatValue];
-		kHeight = (float)[Prefs[@"kHeight"]?:@(0) floatValue];
-		kAlphaText = (float)[Prefs[@"kAlphaText"]?:@(1.0) floatValue];
 	}
 }
 
